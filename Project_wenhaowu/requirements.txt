@@ -1,0 +1,9 @@
+plyer==2.0.0
+kivymd==0.104.2
+kivy==2.1.0
+numpy==1.23.1
+tensorflow-macos==2.9.2
+pync==2.0.3
+pandas==1.4.2
+prettytable==3.3.0
+sqlalchemy==1.4.39

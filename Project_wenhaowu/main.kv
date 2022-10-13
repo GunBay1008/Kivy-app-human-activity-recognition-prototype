@@ -1,0 +1,1104 @@
+ScreenManager:
+    #MDscreen:
+    LoginScreen:
+    SignUpScreen:
+    AcknowledgeScreen:
+    MainScreen:
+    SettingsScreen:
+    GraphScreen:
+    NotificationScreen:
+    UserProfileScreen:
+    EditUserProfileScreen:
+##############################
+
+<LoginScreen>:
+    
+    name: "login"
+    email: email
+    password: password
+    MDCard:
+        radius: [20]
+        size_hint: 0.95, 0.98
+        pos_hint: {"center_x":0.5,"center_y":0.5}   #pos of our card
+        elevation: 20
+        md_bg_color: [0.3,0.3,0.6,1] 
+        spacing: 30
+        padding: 20
+        orientation: "vertical"
+
+
+        
+        MDLabel:
+            id: welcome_label
+            text: "Welcome to the Fitness Application"
+            color: "white"
+            halign: 'center'
+            #size_hint_y: None
+            #height: self.texture_size[1]
+            font_name: 
+            pos_hint: {"center_x": 0.5, "top": 0.99}
+            #padding_y: 15
+            font_size: 50
+
+        Widget:
+            size_hint_y: None
+            height: 400
+
+        #MDFloatLayout:
+        #orientation: "vertical"
+        #cols: 1
+    
+    MDTextFieldRound:
+        id: email
+        hint_text: "Email"
+        icon_right: 'account'
+        size_hint_x: None
+        width: 300
+        font_size: 16
+        pos_hint: {"center_x":.5, "top": 0.55}  ################
+        #max_text_length: 201
+        helper_text: "enter your email"
+        #icon_right_color_focus: 0, 1, 0, 1
+        #color_active: [0,8,3,1]
+
+    MDTextFieldRound:
+        id: password
+        hint_text: "Password"
+        icon_right: 'eye-off'
+        size_hint_x: None
+        width: 300
+        font_size: 16
+        pos_hint: {"center_x":.5, "top": 0.48}
+        #max_text_length: 20
+        helper_text: "enter your password"
+        password: True
+        #icon_right_color_focus: 0, 1, 0, 1
+        color_active: [0,8,3,1]
+        required: True
+
+    MDChip:
+        text: 'Login'
+        icon: ''
+        pos_hint: {"center_x":.5, "top": 0.40}
+        on_release:
+            root.login()
+            #app.root.current="loginBtn"
+    
+    MDChip:
+        text: 'Sign Up'
+        icon: ''
+        pos_hint: {"center_x":.5, "top": 0.34}
+        on_release:
+            app.root.current= "signup"
+            root.manager.transition.direction= "left"
+
+  
+<SignUpScreen>:
+    name: "signup"
+    email:email
+    password: password
+    password_confirmation:password_confirmation
+    username:username
+    age:age
+    weight:weight
+    uheight: uheight
+    gender:gender
+    jp:jp
+    
+    MDLabel:
+        text: "Sign Up Now!"
+        font_size: "20dp"
+        theme_text_color: "Secondary"
+        size_hint_y: None
+        pos_hint: {"center_x": 0.8, "center_y": 0.95  }
+        line_color: (0, 1, 1, 0)
+    
+    # MDCard:  
+    #     padding: 10
+    #     radius: [20]
+    #     size_hint: None, None
+    #     size: 500, 780
+    #     pos_hint: {"center_x": .5, "center_y": 0.47}   #pos of our card
+    #     elevation: 15
+    #     padding: 10
+    #     spacing: 5
+    #     orientation: "vertical"
+
+    MDTextField:
+        id: email
+        hint_text: "Enter Your Email"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.88}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: None
+        color_active: [1,1,1,1]
+        helper_text: "enter your email"
+        icon_right_color_focus: 0, 1, 0, 1
+
+    MDSeparator:
+        height: "2dp"
+
+    MDTextField:
+        id:password
+        hint_text: "Enter Your New Password!"
+        mode: "rectangle"
+        password: True
+        icon_right: 'eye-off'
+        icon_left: "key-variant"
+        # required: True            
+        size_hint_x: 0.8
+        font_size: 15
+        height: 0.3
+        pos_hint: {"center_x":.5, "top": 0.80}   #pos of our card
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "enter your password"
+        icon_right_color_focus: 1, 0, 0, 1
+
+    MDSeparator:
+        height: "2dp"
+
+    MDTextField:
+        id:password_confirmation
+        hint_text: "Re-enter Your New Password!"
+        mode: "rectangle"
+        password: True
+        icon_right: 'eye-off'
+        # required: True
+        size_hint_x: 0.8
+        font_size: 15
+        height: 0.5
+        pos_hint: {"center_x":.5, "top": 0.72}   #pos of our card
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "enter your password"
+        #icon_right_color_focus: 1, 0, 0, 1
+
+    MDSeparator:
+        height: "2dp"
+
+    MDTextField:
+        id: username
+        hint_text: "Name"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.64}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "enter your email"
+        icon_right_color_focus: 0, 1, 0, 1
+
+    MDSeparator:
+        height: "2dp"
+    MDTextField:
+        id:age
+        hint_text: "Age"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.56}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "enter your email"
+        icon_right_color_focus: 0, 1, 0, 1
+    MDTextField:
+        id:weight
+        hint_text: "Weight (in kg)"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.48}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "in kg"
+        icon_right_color_focus: 0, 1, 0, 1
+
+    MDSeparator:
+        height: "2dp"
+    MDTextField:
+        id: uheight
+        hint_text: "Height (in cm)"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.40}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "in cm"
+        icon_right_color_focus: 0, 1, 0, 1
+
+    MDSeparator:
+        height: "2dp"
+
+    MDTextField:
+        id: gender
+        hint_text: "Gender (Male/Female)"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.32}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        helper_text: "Male/Female"
+        icon_right_color_focus: 0, 1, 0, 1
+    MDSeparator:
+        height: "2dp"
+    MDTextField:
+        id:jp
+        hint_text: "Job Position"
+        mode: "rectangle"
+        halign: "center"
+        #required: True
+        #size: "20dp", "10dp"
+        size_hint_x: 0.8
+        pos_hint: {"center_x":.5, "top": 0.24}   #pos of our card
+        height: 0.5
+        font_size: 15
+        max_text_length: 20
+        color_active: [1,1,1,1]
+        icon_right_color_focus: 0, 1, 0, 1
+    MDSeparator:
+        height: "2dp"    
+
+    MDRectangleFlatIconButton:
+        text: "Register"
+        line_color: (0, 1, 1, 0)
+        pos_hint: {"center_x": .25, "top": 0.16}
+        on_release:
+            root.registerBtn()
+            root.manager.current="acknowledge"
+                
+    MDRectangleFlatIconButton:
+        text: "Back"
+        line_color: (0, 1, 1, 0)
+        pos_hint: {"center_x": .75, "top": 0.16}
+        on_release:
+            app.root.current= "login"
+            root.manager.transition.direction= "up"
+
+<AcknowledgeScreen>
+    name: "acknowledge"
+    MDCard:
+        radius: [20]
+        size_hint: 0.95, 0.98
+        pos_hint: {"center_x":0.5,"center_y":0.5}   #pos of our card
+        elevation: 20
+        md_bg_color: [1,1,1, 1] 
+        spacing: 30
+        padding: 20
+        orientation: "vertical"
+
+
+    
+        MDLabel:
+            id: acknowledge_label
+            text: "Acknowledgement"
+            color: "black"
+            halign: 'center'
+            #size_hint_y: None
+            #height: self.texture_size[1]
+            font_name: 
+            pos_hint: {"center_x":.5, "top": 1}
+            #padding_y: 15
+            font_size: 30
+
+        # Widget:
+        #     size_hint_y: None
+        #     height: 100
+
+        MDSeparator:
+            height: "2dp"    
+
+        MDLabel:
+            id: ack1_label
+            text: 'ack1'
+        
+        MDSeparator:
+            height: "2dp"    
+        MDLabel:
+            id: ack2_label
+            text: "ack2"
+        MDSeparator:
+            height: "2dp"    
+        MDLabel:
+            id: ack3_label
+            text: "ack3"
+        MDSeparator:
+            height: "2dp"
+        
+        # MDLabel:
+        #     id: weight_label
+        #     text: "Weight"
+        # MDLabel:
+        #     id: height_label
+        #     text: "Height"
+        # MDLabel:
+        #     id: gender_label
+        #     text: "Gender"
+        # MDLabel:
+        #     id: jp_label
+        #     text: "Job Position"
+        MDFillRoundFlatButton:
+            text: "I agree"
+            on_release:
+                app.root.current= "login"
+                root.manager.transition.direction= "right"    
+        MDFillRoundFlatButton:
+            text: "I disagree"
+            on_release:
+                app.root.current= "signup"
+                root.manager.transition.direction= "right"  
+
+<MainScreen>:
+    actual_movement:actual_movement
+    on_pre_enter: root.get_info()
+    name: "main"
+    # u_age:u_age
+    # u_gender:u_gender
+    # motivation_task1: motiv_task1
+    # motivation_task2: motiv_task2
+    # motivation_task3: motiv_task3
+    # motivation_task4: motiv_task4
+    # motivation_task5: motiv_task5
+    # motiv_task1 : motivation_task1
+    # motiv_task2 : motivation_task2
+    # motiv_task3 : motivation_task3
+    # motiv_task4 : motivation_task4
+    # motiv_task5 : motivation_task5
+    motiv_task1 : motiv_task1
+    motiv_task2 : motiv_task2
+    motiv_task3 : motiv_task3
+    motiv_task4 : motiv_task4
+    motiv_task5 : motiv_task5
+
+
+    ScrollView:
+        #do_scroll_y: True
+        #orientation: "vertical"
+        #halign: 'center'
+        #padding: 16
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "10dp"
+            spacing: "15dp"
+            size_hint_y: None
+            height: self.minimum_height
+            MDCard:
+                orientation: "vertical"
+                padding: "10dp"
+                spacing: "5dp"
+                size_hint: None, None
+                size: "280dp",  self.minimum_height
+                pos_hint: {"center_x": .5}
+                line_color: 0.2, 0.2, 0.2, 1
+                                
+                MDLabel:
+                    text: "Movement Analysis"
+                    font_size: "20dp"
+                    theme_text_color: "Secondary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    line_color: (0, 1, 1, 0)
+                
+                MDSeparator:
+                    height: "2dp"
+
+                MDLabel:
+                    id: actual_movement
+                    text: ""
+                    size_hint_y: None
+                    height: "20dp"
+                    font_size: "12dp"
+                    markup: True
+
+                MDGridLayout:
+                    cols: 3
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: "5dp"
+                    spacing: "5dp"
+                    adaptive_height: True
+                    
+                    #md_bg_color: app.theme_cls.primary_color
+
+                
+                    # MDIconButton:
+                    #     icon: 'location-enter'
+                    #     # halign: 'center'
+                    # MDLabel:
+                    #     text: "Check-in"
+                    #     font_size: "12dp"
+                    #     # halign: 'center'
+
+                    # MDIconButton:
+                    #     icon: 'location-exit'
+                    #     # halign: 'center'
+                    # MDLabel:
+                    #     text: "Check-out"
+                    #     font_size: "12dp"
+                    #     # halign: 'center'
+
+                    MDLabel:
+                        id: check_in_label
+                        font_size: 20
+                        text: "Click to check-in"
+
+                    MDIconButton:
+                        id: check_in_button
+                        icon: 'location-enter'
+                        on_release: root.check_in_deactivate(self.disabled)
+
+
+                    MDLabel:
+                        id: check_out_label
+                        font_size: 20
+                        text: "Click to check-out"
+
+                    MDIconButton:
+                        id: check_out_button
+                        icon: 'location-exit'
+                        on_release: root.check_out_deactivate(self.disabled)
+
+
+                    # MDSwitch:
+                    #     id: my_switch
+                    #     active: True
+                    #     disabled: False
+                    #     font_size: 20
+                    #     on_active: root.switch_click(self, self.active)    
+
+
+                    # MDIconButton:
+                    #     icon: 'alarm'
+                    #     # halign: 'center'
+                    # MDLabel:
+                    #     text: "Notifications on"
+                    #     font_size: "12dp"
+                    #     #halign: 'center'
+                    
+                    MDLabel:
+                        id: notification_switch_label
+                        font_size: 20
+                        text: "Notification ON"
+
+                    MDSwitch:
+                        id: notification_switch
+                        active: True
+                        disabled: False
+                        font_size: 20
+                        on_active: root.notif_switch_click(self, self.active)
+
+
+                Widget:
+                    size_hint_y: None
+                    height: 10
+
+                MDSeparator:
+                    height: "2dp"
+
+                GridLayout:
+                    cols: 2
+                    orientation: "lr-tb"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    
+
+                    MDCheckbox:
+                        id: motiv_checkbox_1
+                        size_hint: None, None
+                        size: "30dp", motiv_task1.height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        spacing: "15dp"
+                        active: 
+                        on_active: root.notification_text(self.active, motiv_task1.text)
+                    MDLabel:
+                        id: motiv_task1
+                        text: "123"#str(motivation_task[0])
+                        font_size: "12dp"
+                        size: self.texture_size
+                        spacing: "15dp"
+                    MDCheckbox:
+                        id: motiv_checkbox_2
+                        size_hint: None, None
+                        size: "30dp", motiv_task2.height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        spacing: "15dp"
+                        active: 
+                        on_active: root.notification_text(self.active, motiv_task2.text)
+                    MDLabel:
+                        id: motiv_task2
+                        text: "123"#str(motivation_task[1])
+                        font_size: "12dp"
+                        size: self.texture_size
+                        spacing: "15dp"
+                    MDCheckbox:
+                        id: motiv_checkbox_3
+                        size_hint: None, None
+                        size: "30dp", motiv_task3.height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        spacing: "15dp"
+                        active: 
+                        on_active: root.notification_text(self.active, motiv_task3.text)
+                    MDLabel:
+                        id: motiv_task3
+                        text: "123"#str(motivation_task[2])
+                        font_size: "12dp"
+                        size: self.texture_size
+                        spacing: "15dp"
+                    MDCheckbox:
+                        id: motiv_checkbox_4
+                        size_hint: None, None
+                        size: "30dp", motiv_task4.height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        spacing: "15dp"
+                        active: 
+                        on_active: root.notification_text(self.active, motiv_task4.text)
+                    MDLabel:
+                        id: motiv_task4
+                        text: "wt"#str(motivation_task[3])
+                        font_size: "12dp"
+                        size: self.texture_size
+                        spacing: "15dp"
+                    MDCheckbox:
+                        id: motiv_checkbox_5
+                        size_hint: None, None
+                        size: "30dp", motiv_task5.height
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        spacing: "15dp"
+                        active: 
+                        on_active: root.notification_text(self.active, motiv_task5.text)
+                    MDLabel:
+                        id: motiv_task5
+                        text: "sex"#str(motivation_task[4])
+                        font_size: "12dp"
+                        size: self.texture_size
+                        spacing: "15dp"
+
+                MDFillRoundFlatButton:
+                    text: "Remind Me"
+                    line_color: (1, 1, 1, 1)
+                    halign: 'center'
+                    pos_hint: {"center_x":.5}
+                    size_hint_y: None
+                    #on_active: root.notification_text()
+
+                    #pos_hint: {"center_x": .5, "center_y": .4}
+                    on_release:
+                        #root.notification_text(instance, value)
+                        root.pop_up_notification()
+                        # except:
+                        #     show_notification_alert_dialog()
+
+                        #root.manager.transition.direction= "left"
+            MDCard:
+                orientation: "vertical"
+                padding: "10dp"
+                spacing: "15dp"
+                size_hint: None, None
+                size: "280dp",  self.minimum_height
+                pos_hint: {"center_x": .5} #, 'top': 0.55
+                line_color: 0.2, 0.2, 0.2, 1  
+
+                MDSeparator:
+                    height: "2dp"
+
+                MDLabel:
+                    text: "Display Analysis"
+                    font_size: "20dp"
+                    #theme_text_color: "Secondary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    line_color: (0, 1, 1, 0)
+
+                MDFillRoundFlatButton:
+                    text: "Graph"
+                    line_color: (1, 1, 1, 1)
+                    pos_hint: {"center_x": .5, "center_y": .1}
+                    on_release:
+                        app.root.current= "graph"
+                        root.manager.transition.direction= "left"
+                    
+                MDSeparator:
+                    height: "2dp"
+
+            MDRoundFlatIconButton:
+                #icon: "settings"
+                text: "Settings"
+                line_color: (0, 1, 1, 1)
+                # set_size: (100, 100)
+                pos_hint: {"center_x": .5, "center_y": 0.5} 
+                on_release:
+                    app.root.current= "settings"
+                    root.manager.transition.direction= "left"
+
+            MDRoundFlatIconButton:
+                text: "Back"
+                icon: "android"
+                line_color: (0, 1, 1, 1)
+                pos_hint: {"center_x": .5} #, "center_y": 0.1
+                on_release:
+                    app.root.current= "login"
+                    root.manager.transition.direction= "left"
+
+<GraphScreen>:
+    name:'graph'
+
+    MDCard:
+        radius: [20]
+        size_hint: 0.95, 0.98
+        pos_hint: {"center_x":0.5,"center_y":0.5}   #pos of our card
+        elevation: 20
+        md_bg_color: [0.3,0.3,0.6,1] 
+        spacing: 30
+        padding: 20
+        orientation: "vertical"
+        
+
+        MDLabel:
+            text: "Graphical Display of the Data"
+            font_size: "20dp"
+            theme_text_color: "Secondary"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5}
+            height: self.texture_size[1]
+            line_color: (0, 1, 1, 0)
+            color: "white"
+        Widget:
+            size_hint_y: None
+            height: 20
+
+        MDRectangleFlatButton:
+            text: "Daily"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+            line_color: 0, 0, 1, 1
+            pos_hint: {"center_x": .5}
+
+        MDRectangleFlatButton:
+            text: "Weekly"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+            line_color: 0, 0, 1, 1
+            pos_hint: {"center_x": .5}
+        MDRectangleFlatButton:
+            text: "Monthly"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+            line_color: 0, 0, 1, 1
+            pos_hint: {"center_x": .5}
+
+        MDRoundFlatButton:
+            text: "Back"
+            theme_text_color: "Custom"
+            text_color: 0, 0, 0, 1
+            line_color: 0, 0, 1, 1
+            pos_hint: {"center_x": .5}
+            on_release:
+                app.root.current= "main"
+                root.manager.transition.direction= "right"
+        
+
+        Widget:
+            size_hint_y: None
+            height: 20
+
+        
+<SettingsScreen>:
+
+    name: "settings"
+    MDCard:
+        radius: [20]
+        size_hint: 0.95, 0.98
+        pos_hint: {"center_x":0.5,"center_y":0.5}   #pos of our card
+        elevation: 20
+        md_bg_color: [1,1,1,1] 
+        spacing: 10
+        padding: 10
+        orientation: "vertical"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "10dp"
+        spacing: "15dp"
+        size_hint_y: None
+        height: self.minimum_height
+        MDLabel:
+            text: "Settings"
+            color: "black"
+            font_name: 
+            font_size: 60
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.80}
+
+        Widget:
+            size_hint_y: None
+            height: 150
+        MDRoundFlatButton:
+            text: "Notification Settings"
+            icon_right: 'account'
+            size_hint_x: None
+            width: 250
+            font_size: 30
+            pos_hint: {"center_x":.5}  ################
+            #max_text_length: 201
+            helper_text: "enter your email"
+            on_release:
+                app.root.current= "notify"
+                root.manager.transition.direction= "left"
+        MDRoundFlatButton:
+            text: "User Profile"
+            icon_right: 'account'
+            size_hint_x: None
+            width: 250
+            font_size: 30
+            pos_hint: {"center_x":.5}  ################
+            #max_text_length: 201
+            helper_text: "enter your email"
+            on_release:
+                app.root.current= "userprofile"
+                root.manager.transition.direction= "left"
+        MDRoundFlatButton:
+            text: "Edit User Profile"
+            icon_right: 'account'
+            size_hint_x: None
+            width: 250
+            font_size: 30
+            pos_hint: {"center_x":.5}  ################
+            #max_text_length: 201
+            helper_text: "Edit Profile"
+            on_release:
+                app.root.current= "edituserprofile"
+                root.manager.transition.direction= "left"
+
+        Widget:
+            size_hint_y: None
+            height: 30
+
+        MDRoundFlatButton:
+            text: "Return To Main Screen"
+            icon: ''
+            pos_hint: {"center_x":.5}
+            on_release:
+                app.root.current= "main"
+                root.manager.transition.direction= "right"
+        Widget:
+            size_hint_y: None
+            height: 30
+
+
+<NotificationScreen>:
+    name:'notify'
+
+    MDCard:
+        orientation: "vertical"
+        radius: [20]
+        padding: "10dp"
+        spacing: "5dp"
+        size_hint: 0.95, 0.98
+        
+        pos_hint: {"center_x": .5, 'center_y': 0.5}
+        line_color: 0.2, 0, 1, 1
+        
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "10dp"
+        spacing: "15dp"
+        size_hint_y: None
+        height: self.minimum_height
+        MDLabel:
+            text: "Notification Settings"
+            color: "black"
+            font_name: 
+            font_size: 28
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.7}
+        Widget:
+            size_hint_y: None
+            height: 20
+        MDSeparator:
+            height: "2dp"
+
+        MDGridLayout:
+            
+            size_hint: None, None
+            size: dp(120), dp(48)
+            pos_hint: {"center_x": 0.6}            
+            cols: 2
+
+            MDTextField:
+                text: "1 Hour"
+                #pos_hint: {'center_x': .1, 'center_y': .5}
+            MDCheckbox:
+                active: True
+                group: 'noti'
+                #pos_hint: {'center_x': .1, 'center_y': .5}
+            MDTextField:
+                text: "2 Hours"
+                #pos_hint: {'center_x': .1, 'center_y': .7}
+            MDCheckbox:
+                group: 'noti'
+                #pos_hint: {'center_x': .1, 'center_y': .7}
+        Widget:
+            size_hint_y: None
+            height: 250
+
+        MDFillRoundFlatButton:    
+            text:"Back"
+            on_release:
+                app.root.current= "settings"
+                root.manager.transition.direction= "right"
+    #BoxLayout:
+     #   orientation: 'vertical'
+      #  padding: "10dp"
+      #  spacing: "15dp"
+      #  size_hint_y: None
+      #  height: self.minimum_height
+        
+        #GridLayout:
+         #   cols: 2
+
+          #  padding: "10dp"
+           # spacing: "15dp"
+       #     size_hint_y: None
+        #    height: self.minimum_height
+         #   MDLabel:
+         #       text: "Notification/hour"
+          #      color: "black"
+           #     font_name: "fonts/Lcd.ttf"
+           #     font_size: 40
+
+           # MDDropDownItem:
+            #    id:notify_time
+             #   text: "Hour"
+              #  on_release: app.menu.open()
+
+
+<UserProfileScreen>:
+    name:"userprofile"
+    on_pre_enter: root.callback()
+    email_label: email_label
+    username_label:username_label
+    age_label: age_label
+    weight_label:weight_label
+    uheight_label:uheight_label
+    gender_label:gender_label
+    jp_label:jp_label
+
+    MDCard:
+        radius: [20]
+        size_hint: 0.95, 0.98
+        pos_hint: {"center_x":0.5,"center_y":0.5}   #pos of our card
+        elevation: 20
+        md_bg_color: [1,1,1, 1] 
+        spacing: 30
+        padding: 20
+        orientation: "vertical"
+
+
+        
+        MDLabel:
+            id: welcome_label
+            text: "User Profile"
+            color: "black"
+            halign: 'center'
+            #size_hint_y: None
+            #height: self.texture_size[1]
+            font_name: 
+            pos_hint: {"center_x":.5, "top": 1}
+            #padding_y: 15
+            font_size: 30
+
+        Widget:
+            size_hint_y: None
+            height: 100
+
+        
+        MDLabel:
+            id: username_label
+            text: 'UserName'
+                
+
+        # MDRoundFlatButton:
+        #     text: "Testing"
+        #     on_release:
+        #         root.userdataname()
+
+        MDLabel:
+            id: email_label
+            text: "Email"
+        MDLabel:
+            id: age_label
+            text: "Age"
+        MDLabel:
+            id: weight_label
+            text: "Weight"
+        MDLabel:
+            id: uheight_label
+            text: "Height"
+        MDLabel:
+            id: gender_label
+            text: "Gender"
+        MDLabel:
+            id: jp_label
+            text: "Job Position"
+        MDFillRoundFlatButton:
+            text: "Back"
+            on_release:
+                app.root.current= "settings"
+                root.manager.transition.direction= "right"    
+
+        #MDFloatLayout:
+        #orientation: "vertical"
+        #cols: 1
+
+<EditUserProfileScreen>:
+    name:"edituserprofile"
+    chg_username:chg_username
+    chg_age:chg_age
+    chg_weight:chg_weight
+    chg_uheight:chg_uheight
+    chg_gender: chg_gender
+    chg_jp:chg_jp
+
+    MDCard:
+        radius: [20]
+        size_hint: 0.95, 0.98
+        pos_hint: {"center_x":0.5,"center_y":0.5}   #pos of our card
+        elevation: 20
+        md_bg_color: [1,1,1, 1] 
+        spacing: 30
+        padding: 20
+        orientation: "vertical"
+
+        MDBoxLayout:
+            orientation: "vertical" 
+            padding: 5
+            spacing: 5
+
+        
+            MDLabel:
+
+                text: "Edit User Profile"
+                color: "black"
+                halign: 'center'
+                #size_hint_y: None
+                #height: self.texture_size[1]
+                font_name: 
+                pos_hint: {"center_x":.5, "top": 1}
+                #padding_y: 15
+                font_size: 30
+
+            Widget:
+                size_hint_y: None
+                height: 20
+        
+            MDGridLayout:
+                cols:2
+                MDLabel:
+                    text: "User Name"
+                MDTextField:
+                    id:chg_username
+                    hint_text: "Change UserName"
+            Widget:
+                size_hint_y: None
+                height: 20 
+            MDGridLayout:
+                cols:2
+                MDLabel:
+                    text: "Age"
+                MDTextField:
+                    id: chg_age
+                    hint_text: "Change Age"
+            Widget:
+                size_hint_y: None
+                height: 20
+            MDGridLayout:
+                cols:2
+                MDLabel:
+                    text: "Weight"
+                MDTextField:
+                    id: chg_weight
+                    hint_text: "Change Weight"
+            Widget:
+                size_hint_y: None
+                height: 20
+            MDGridLayout:
+                cols:2
+                MDLabel:
+                    text: "Height"
+                MDTextField:
+                    id: chg_uheight
+                    hint_text: "Change Height"
+            Widget:
+                size_hint_y: None
+                height: 20
+            MDGridLayout:
+                cols:2
+                MDLabel:
+                    text: "Gender"
+                MDTextField:
+                    id:chg_gender
+                    hint_text: "Change Gender"
+            Widget:
+                size_hint_y: None
+                height: 20
+
+            MDGridLayout:
+                cols:2
+                MDLabel:
+                    text: "Job Position"
+                MDTextField:
+                    id: chg_jp
+                    hint_text: "Change Job Position"
+            Widget:
+                size_hint_y: None
+                height: 20
+        MDChip:
+            text: "Save Changes"
+            on_release:
+                root.savechanges()
+                # app.root.current= "settings"
+                # root.manager.transition.direction= "right"
+        MDChip:
+            text: "Back"
+            on_release:
+                app.root.current= "settings"
+                root.manager.transition.direction= "right"   
+
+
+
+
+                
+
+
+
+
+    
+
+
